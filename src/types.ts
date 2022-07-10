@@ -12,5 +12,6 @@ export interface IGetLessonResponse {
     slug: string;
     availableAt: string;
     lessonType: 'live' | 'class';
+    track: 'react' | 'reactnative' | 'nodejs';
   }[]
 }
