@@ -1,14 +1,14 @@
-import Classes from "./classes"
 import { ApolloProvider } from "@apollo/client"
 import { client } from "../lib/apollo"
 
 import '../styles/global.css'
+import { AppProps } from "next/app"
 
 
-function App() {
+function App({ Component, pageProps }: AppProps) {
   return (
     <ApolloProvider client={client}>
-      <Classes />
+      <Component {...pageProps} />
     </ApolloProvider>
   )
 }
