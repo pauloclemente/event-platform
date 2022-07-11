@@ -6,9 +6,6 @@ import { Video } from "../../../../components/Video";
 export default function Classes() {
   const router = useRouter()
   const { slug } = router.query
-  if (!slug) {
-
-  }
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -21,6 +18,5 @@ export default function Classes() {
       </main>
     </div>
   )
-
-
 }
+

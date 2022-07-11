@@ -1,6 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import Link from "next/link"
 import { CaretRight, DiscordLogo, FileArrowDown, Lightning } from "phosphor-react"
+import StorageKey from "../enums/StorageKey";
 
 interface VideoProps {
   lessonSlug: string | string[];
@@ -24,6 +25,8 @@ export function Video(props: VideoProps) {
       slug: props.lessonSlug,
     }
   })
+
+  localStorage.setItem(StorageKey.WatchingClass, props.lessonSlug.toString())
 
   if (!data) {
     return <div className="flex-1">Loading</div>
