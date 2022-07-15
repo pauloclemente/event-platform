@@ -11,7 +11,7 @@ export function Lesson(props: ILessonPage) {
     locale: ptBR,
   })
   return (
-    <Link href={`/ignite-lab/lesson/${props.slug}`}>
+    <Link href={`/ignite-lab/${props.track}/${props.slug}`}>
       <a className="group">
         <span className="text-gray-300">
           {availableDateFormatted}

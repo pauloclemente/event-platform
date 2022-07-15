@@ -3,6 +3,7 @@ export interface ILessonPage {
   slug: string;
   availableAt: Date;
   type: 'live' | 'class';
+  track: string;
 }
 
 export interface IGetLessonResponse {
