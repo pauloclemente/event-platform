@@ -11,6 +11,7 @@ interface IGetLessonBySlugResponse {
     title: string;
     videoId: string;
     description: string;
+    track: string;
     teacher: {
       bio: string;
       avatarURL: string;
@@ -25,6 +26,10 @@ export function Video(props: VideoProps) {
       slug: props.lessonSlug,
     }
   })
+
+  if (data?.lesson.track) {
+    localStorage.setItem(StorageKey.WatchingTrack, data?.lesson.track)
+  }
 
   localStorage.setItem(StorageKey.WatchingClass, props.lessonSlug.toString())
 
@@ -49,6 +54,7 @@ export function Video(props: VideoProps) {
       <div className="p-8 max-w-[1100px] mx-auto">
         <div className="flex items-start gap-16">
           <div className="flex-1">
+
             <h1 className="text-2xl font-bold">
               {data.lesson.title}
             </h1>
@@ -124,13 +130,13 @@ const GET_LESSON_BY_SLUG_QUERY = gql`
 query GetLessonBySlug ($slug: String) {
   lesson(where: {slug: $slug}) {
     title
-    description
+    track
     videoId
+    description
     teacher {
-      avatarURL
       bio
+      avatarURL
       name
     }
- }
-}
-`
+  }
+}`

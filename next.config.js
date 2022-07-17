@@ -5,21 +5,15 @@ module.exports = {
   async redirects() {
     paths = [];
 
-    paths.push(
-      {
-        source: '/',
-        destination: '/ignite-lab',
-        permanent: false,
-      }
-    );
     paths = [
       ...paths,
       {
-        source: `/ignite-lab/lesson/:slug*`,
+        source: `/ignite-lab/:track(.*)/:slug`,
         destination: `/ignite-lab`,
         permanent: false,
 
-      }
+      },
+
     ];
     return paths
   }

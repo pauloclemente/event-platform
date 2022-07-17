@@ -20,6 +20,7 @@ export function SideBar() {
               slug={lesson.slug}
               availableAt={new Date(lesson.availableAt)}
               type={lesson.lessonType}
+              track={lesson.track}
             />
           )
         })}
@@ -36,6 +37,7 @@ const GET_LESSON_QUERY = gql`
       availableAt
       title
       slug
+      track
     }
   }
 `
